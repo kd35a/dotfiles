@@ -8,12 +8,16 @@ highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 
 " Highlight everything after character 80 on a line.
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
 
 " NERDTree
 nnoremap nt :NERDTree<CR>
 autocmd vimenter * if !argc() | NERDTree | endif " Open if no files were specified
+
+" Make tabs, trailing whitespace, and non-breaking spaces visible
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
 
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
