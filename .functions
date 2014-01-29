@@ -39,4 +39,13 @@ setrandmac () {
   sudo ip link set dev wlan0 up
 }
 
+createtorrent() {
+  transmission-create -p \
+    -o "${1}" \
+    -c "${1} by createtorrent.sh" \
+    -t udp://tracker.publicbt.com:80 \
+    -t udp://tracker.openbittorrent.com:80 \
+    $2
+}
+
 # vim: set ft=sh:
