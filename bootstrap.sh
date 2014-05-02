@@ -18,7 +18,7 @@ git pull origin master
 function doIt() {
 	rsync $BACKUP --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
 		--exclude "README.md" --exclude "LICENSE-MIT.txt" --exclude ".gitmodules" \
-		--exclude "differ.sh"
+		--exclude "differ.sh" \
 		-av --no-perms . ~
 	source ~/.bash_profile
 }
