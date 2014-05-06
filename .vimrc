@@ -1,4 +1,3 @@
-execute pathogen#infect()
 set number
 set background=dark
 syntax enable
@@ -40,3 +39,5 @@ if !exists("autocommands_loaded")
   autocmd FileType erlang set expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent smartindent
   autocmd FileType rust set expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent smartindent
 endif
+
+execute pathogen#infect()
