@@ -38,6 +38,7 @@ if !exists("autocommands_loaded")
   autocmd BufRead,BufNewFile,FileReadPost *.rb set expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent smartindent
   autocmd FileType erlang set expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent smartindent
   autocmd FileType rust set expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent smartindent
+  autocmd BufRead,BufNewFile,FileReadPost *.axlsx set filetype=ruby
 endif
 
 execute pathogen#infect()
