@@ -5,6 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+alias ls='ls --color=auto'
+
+if [ -r /etc/bashrc ]; then
+	source /etc/bashrc
+fi
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -21,6 +27,6 @@ fi
 
 export PS1='\[\e[G\][\A|$?]\[\e[1m\]\u@\h\[\e[0m\]:\W$(__git_ps1 " (%s)")\$ '
 
-export PATH=/usr/local/heroku/bin:~/bin:$PATH
+export PATH=/home/fredrik/.gem/ruby/2.1.0/bin:/usr/local/heroku/bin:~/bin:$PATH
 
 export EDITOR="vim"
