@@ -4,3 +4,6 @@
 [submodule ".vim/bundle/vim-ledger"]
 	path = .vim/bundle/vim-ledger
 	url = https://github.com/ledger/vim-ledger.git
+[submodule ".vim/bundle/vim-minizinc"]
+	path = .vim/bundle/vim-minizinc
+	url = https://github.com/vale1410/vim-minizinc.git
