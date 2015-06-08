@@ -1,6 +1,47 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" For letting local folders have vimrc-files
+Plugin 'thinca/vim-localrc'
+
+" Filebrowser inside vim
+Plugin 'scrooloose/nerdtree'
+
+" Syntax-higlightning
+Plugin 'ledger/vim-ledger'
+Plugin 'groenewege/vim-less'
+
+" Use git from inside vim
+Plugin 'tpope/vim-fugitive'
+
+" Add statusbar
+Plugin 'bling/vim-airline'
+
+Plugin 'kien/ctrlp.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" General config
+scriptencoding utf-8
+set encoding=utf-8
 set number
 set background=dark
 syntax enable
+
+" Airline-config
+set laststatus=2
+set timeoutlen=50
+let g:airline#extensions#tabline#enabled=1
+let g:airline_powerline_fonts=1
 
 " Highlight end of line whitespace.
 highlight WhitespaceEOL ctermbg=red guibg=red
@@ -15,30 +56,5 @@ nnoremap nt :NERDTree<CR>
 autocmd vimenter * if !argc() | NERDTree | endif " Open if no files were specified
 
 " Make tabs, trailing whitespace, and non-breaking spaces visible
-exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set listchars=tab:»\ ,nbsp:~
 set list
-
-if !exists("autocommands_loaded")
-  let autocommands_loaded = 1
-  autocmd BufRead,BufNewFile *.json set filetype=json
-  autocmd BufRead,BufNewFile,FileReadPost *.py source ~/.vim/python2
-  autocmd BufNewFile *.py 0r ~/.vim/skel/python.py
-
-  autocmd BufRead,BufNewFile,FileReadPost *.html set tabstop=2 noexpandtab autoindent shiftwidth=2
-  autocmd BufRead,BufNewFile,FileReadPost *.erb set tabstop=2 shiftwidth=2 softtabstop=2 expandtab autoindent
-  autocmd BufNewFile *.html 0r ~/.vim/skel/index.html
-
-  autocmd BufRead,BufNewFile,FileReadPost *.php set tabstop=4 noexpandtab autoindent shiftwidth=4
-  " autocmd BufRead,BufNewFile,FileReadPost *.php set tabstop=4 shiftwidth=4 softtabstop=4 expandtab autoindent
-  autocmd BufRead,BufNewFile,FileReadPost *.css set tabstop=4 noexpandtab autoindent shiftwidth=4
-  " autocmd BufRead,BufNewFile,FileReadPost *.css set tabstop=2 shiftwidth=2 softtabstop=2 expandtab autoindent
-  autocmd BufRead,BufNewFile,FileReadPost *.less set tabstop=2 shiftwidth=2 softtabstop=2 expandtab autoindent
-  autocmd BufRead,BufNewFile,FileReadPost *.c set tabstop=8 noexpandtab autoindent smartindent shiftwidth=8
-  autocmd FileType haskell set expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent smartindent
-  autocmd BufRead,BufNewFile,FileReadPost *.rb set expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent smartindent
-  autocmd FileType erlang set expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent smartindent
-  autocmd FileType rust set expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent smartindent
-  autocmd BufRead,BufNewFile,FileReadPost *.axlsx set filetype=ruby
-endif
-
-execute pathogen#infect()
