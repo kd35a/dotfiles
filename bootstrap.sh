@@ -39,8 +39,6 @@ function doIt() {
 			git clone https://github.com/gmarik/Vundle.vim.git $VUNDLE
 		fi
 	fi
-
-	source ~/.zshrc
 }
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt

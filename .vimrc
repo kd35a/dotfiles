@@ -58,3 +58,6 @@ autocmd vimenter * if !argc() | NERDTree | endif " Open if no files were specifi
 " Make tabs, trailing whitespace, and non-breaking spaces visible
 set listchars=tab:»\ ,nbsp:~
 set list
+
+" Stupid mac
+set backspace=indent,eol,start

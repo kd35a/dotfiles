@@ -50,7 +50,10 @@ ZSH_THEME="dpoggi"
 
 source $ZSH/oh-my-zsh.sh
 
-if [[ "$(lsb_release --id --short)" == "Arch" ]]; then
+if [[ "$(uname)" == "Darwin" ]]; then
+	plugins=(git osx common-aliases gitignore zmv)
+	source .zshrc_local
+elif [[ "$(lsb_release --id --short)" == "Arch" ]]; then
 	plugins=(git archlinux common-aliases gitignore command-not-found zmv tmuxinator)
 
 	export PATH=$HOME/.gem/ruby/2.2.0/bin:/usr/local/heroku/bin:$HOME/bin:$PATH
@@ -60,8 +63,6 @@ if [[ "$(lsb_release --id --short)" == "Arch" ]]; then
 
 	# Home of Android SDK
 	export ANDROID_HOME=/opt/android-sdk
-elif [[ "$(uname)" == "Darwin" ]]; then
-	plugins=(git osx common-aliases gitignore zmv)
 fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
