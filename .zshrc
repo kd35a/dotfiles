@@ -48,8 +48,6 @@ ZSH_THEME="dpoggi"
 
 # User configuration
 
-source $ZSH/oh-my-zsh.sh
-
 if [[ "$(uname)" == "Darwin" ]]; then
 	plugins=(git osx common-aliases gitignore zmv)
 	source .zshrc_local
@@ -64,6 +62,8 @@ elif [[ "$(lsb_release --id --short)" == "Arch" ]]; then
 	# Home of Android SDK
 	export ANDROID_HOME=/opt/android-sdk
 fi
+
+source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
