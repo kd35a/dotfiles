@@ -1,12 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 OH_MY_ZSH="$HOME/.oh-my-zsh"
-VUNDLE="$HOME/.vim/bundle/Vundle.vim"
+VUNDLE="$HOME/.vim/bundle/vundle"
 
-echo -e "Usage: bootstrap.sh [-b | -f]
+echo "Usage: bootstrap.sh [-b | -f]
 Were:
 -b means backup original files
--f means force install\n"
+-f means force install
+"
 
 if [ ! -z "$1" ] && [ "$1" = "-b" ]; then
 	echo "Using backup-feature. Look for *_ORIGINAL-files in ~"
@@ -18,35 +19,49 @@ fi
 cd "$(dirname "${BASH_SOURCE}")"
 git pull origin master
 
-function doIt() {
+doIt() {
 	rsync $BACKUP --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
 		--exclude "README.md" --exclude "LICENSE-MIT.txt" --exclude ".gitmodules" \
 		--exclude "differ.sh" \
 		-av --no-perms . ~
 
 	if [ ! -d "$OH_MY_ZSH" ]; then
-		read -p "Could not find oh-my-zsh, do you want it installed? (y/n): " -n 1
-		echo
-		if [[ $REPLY =~ ^[Yy]$ ]]; then
-			git clone git://github.com/robbyrussell/oh-my-zsh.git $OH_MY_ZSH
-		fi
+		echo "Could not find oh-my-zsh, do you want it installed? (y/n): \c"
+		read
+		case $REPLY in
+		[Yy]*)
+			git clone git://github.com/robbyrussell/oh-my-zsh.git "$OH_MY_ZSH"
+			;;
+		*)
+			;;
+		esac
 	fi
 
 	if [ ! -d "$VUNDLE" ]; then
-		read -p "Could not find vundle, do you want it installed? (y/n): " -n 1
-		echo
-		if [[ $REPLY =~ ^[Yy]$ ]]; then
-			git clone https://github.com/gmarik/Vundle.vim.git $VUNDLE
-		fi
+		echo "Could not find vundle, do you want it installed? (y/n): \c"
+		read
+		case $REPLY in
+		[Yy]*)
+			git clone https://github.com/gmarik/Vundle.vim.git "$VUNDLE"
+			;;
+		*)
+			;;
+		esac
 	fi
+
+	vim -c "execute \"PluginInstall\" | qa"
 }
-if [ "$1" == "--force" -o "$1" == "-f" ]; then
+if [ "$1" = "--force" -o "$1" = "-f" ]; then
 	doIt
 else
-	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
-	echo
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
+	echo "This may overwrite existing files in your home directory. Are you sure? (y/n) \c"
+	read
+	case $REPLY in
+	[Yy]*)
 		doIt
-	fi
+		;;
+	*)
+		;;
+	esac
 fi
 unset doIt
