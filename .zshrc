@@ -47,12 +47,12 @@ ZSH_THEME="dpoggi"
 # Add wisely, as too many plugins slow down shell startup.
 
 # User configuration
-
+plugins=(git gitignore common-aliases zmv vundle)
 if [[ "$(uname)" == "Darwin" ]]; then
-	plugins=(git osx common-aliases gitignore zmv brew ant mvn vundle)
+	plugins+=(osx brew ant mvn)
 	source $HOME/.zshrc_local
 elif [[ "$(lsb_release --id --short)" == "Arch" ]]; then
-	plugins=(git archlinux common-aliases gitignore command-not-found zmv tmuxinator)
+	plugins+=(archlinux command-not-found tmuxinator)
 
 	export PATH=$HOME/.gem/ruby/2.2.0/bin:/usr/local/heroku/bin:$HOME/bin:$PATH
 
