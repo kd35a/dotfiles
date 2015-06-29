@@ -49,7 +49,7 @@ ZSH_THEME="dpoggi"
 # User configuration
 plugins=(git gitignore common-aliases zmv vundle)
 if [[ "$(uname)" == "Darwin" ]]; then
-	plugins+=(osx brew ant mvn)
+	plugins+=(osx brew ant mvn git-strandin)
 	source $HOME/.zshrc_local
 elif [[ "$(lsb_release --id --short)" == "Arch" ]]; then
 	plugins+=(archlinux command-not-found tmuxinator)
