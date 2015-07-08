@@ -52,6 +52,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
 	plugins+=(osx brew ant mvn git-strandin telavox)
 	export REPOS_PATH=$HOME/IdeaProjects
 	export LC_ALL="en_US.UTF-8"
+	export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home"
+	export FIREFOXBIN="/Applications/Firefox.app/Contents/MacOS/firefox"
 	alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 elif [[ "$(lsb_release --id --short)" == "Arch" ]]; then
 	plugins+=(archlinux command-not-found tmuxinator)
@@ -97,6 +99,3 @@ export EDITOR="vim"
 
 alias gitk='gitk --all'
 alias tmux='tmux -2'
-
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home"
-export FIREFOXBIN="/Applications/Firefox.app/Contents/MacOS/firefox"
