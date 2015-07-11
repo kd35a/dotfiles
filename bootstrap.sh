@@ -27,7 +27,7 @@ doIt() {
 
 	if [ ! -d "$OH_MY_ZSH" ]; then
 		echo "Could not find oh-my-zsh, do you want it installed? (y/n): \c"
-		read
+		read REPLY
 		case $REPLY in
 		[Yy]*)
 			git clone git://github.com/robbyrussell/oh-my-zsh.git "$OH_MY_ZSH"
@@ -39,7 +39,7 @@ doIt() {
 
 	if [ ! -d "$VUNDLE" ]; then
 		echo "Could not find vundle, do you want it installed? (y/n): \c"
-		read
+		read REPLY
 		case $REPLY in
 		[Yy]*)
 			git clone https://github.com/gmarik/Vundle.vim.git "$VUNDLE"
@@ -55,7 +55,7 @@ if [ "$1" = "--force" -o "$1" = "-f" ]; then
 	doIt
 else
 	echo "This may overwrite existing files in your home directory. Are you sure? (y/n) \c"
-	read
+	read REPLY
 	case $REPLY in
 	[Yy]*)
 		doIt
