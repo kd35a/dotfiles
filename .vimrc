@@ -17,6 +17,7 @@ Plugin 'scrooloose/nerdtree'
 " Syntax-higlightning
 Plugin 'ledger/vim-ledger'
 Plugin 'groenewege/vim-less'
+Plugin 'tfnico/vim-gradle'
 
 " Use git from inside vim
 Plugin 'tpope/vim-fugitive'
