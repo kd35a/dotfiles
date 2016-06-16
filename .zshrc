@@ -47,9 +47,9 @@ ZSH_THEME="dpoggi"
 # Add wisely, as too many plugins slow down shell startup.
 
 # User configuration
-plugins=(git gitignore common-aliases zmv vundle systemadmin)
+plugins=(git gitignore common-aliases zmv vundle systemadmin vi-mode)
 if [[ "$(uname)" == "Darwin" ]]; then
-	plugins+=(osx brew ant mvn git-strandin telavox rbenv)
+	plugins+=(osx brew ant mvn git-strandin telavox rbenv npm)
 
 	export REPOS_PATH=$HOME/IdeaProjects
 	export LC_ALL="en_US.UTF-8"
