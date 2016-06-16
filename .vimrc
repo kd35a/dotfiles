@@ -32,6 +32,9 @@ Plugin 'chase/vim-ansible-yaml'
 " Plugin for rust
 Plugin 'rust-lang/rust.vim'
 
+" Plugin for markdown
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
