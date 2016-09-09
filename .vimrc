@@ -45,6 +45,11 @@ set encoding=utf-8
 set number
 set background=dark
 syntax enable
+set hlsearch
+set cursorline
+set wildignorecase
+set wildmode=longest:list,full
+set wildmenu
 
 " Airline-config
 set laststatus=2
