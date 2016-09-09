@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="dpoggi"
+ZSH_THEME="flazz"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,7 +49,7 @@ ZSH_THEME="dpoggi"
 # User configuration
 plugins=(git gitignore common-aliases zmv vundle systemadmin vi-mode)
 if [[ "$(uname)" == "Darwin" ]]; then
-	plugins+=(osx brew ant mvn git-strandin telavox rbenv npm)
+	plugins+=(osx brew ant mvn git-strandin telavox rbenv npm innotop-fix)
 
 	export REPOS_PATH=$HOME/IdeaProjects
 	export LC_ALL="en_US.UTF-8"
@@ -59,6 +59,13 @@ if [[ "$(uname)" == "Darwin" ]]; then
 	export PATH=$HOME/bin:$HOME/Development/android-sdk-macosx/tools:/usr/local/sbin:$PATH
 
 	alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
+
+	# Perl cpanminus stuff. Automagic stuff...
+	PATH="/Users/fredrik/perl5/bin${PATH:+:${PATH}}"; export PATH;
+	PERL5LIB="/Users/fredrik/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+	PERL_LOCAL_LIB_ROOT="/Users/fredrik/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+	PERL_MB_OPT="--install_base \"/Users/fredrik/perl5\""; export PERL_MB_OPT;
+	PERL_MM_OPT="INSTALL_BASE=/Users/fredrik/perl5"; export PERL_MM_OPT;
 elif [[ "$(lsb_release --id --short)" == "Arch" ]]; then
 	plugins+=(archlinux command-not-found tmuxinator)
 
